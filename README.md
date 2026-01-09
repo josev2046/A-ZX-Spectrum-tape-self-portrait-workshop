@@ -4,15 +4,11 @@
 
 ## Overview
 
-
-
-https://github.com/user-attachments/assets/270ceb32-235f-462b-b035-217261994a88
-
-
-
 Within the framework of "obsolescence and media fragmentation," this practical workshop moves from theory to physical interaction with legacy hardware. The Sinclair ZX Spectrum (1982) serves as a primary case study for understanding the fragility of magnetic storage and the complexities of preserving software as cultural heritage. Students will engage with the challenges of recovering data from a format that is physically degrading and technically orphaned (Velazquez, 2026).
 
 This project allows for the creation of high-fidelity Attribute Art for the ZX Spectrum (1982) using modern web technologies, then bridging that data back into physical magnetic tape. By bypassing standard drawing commands and manipulating the Spectrum's VRAM directly via POKE statements, this workflow achieves a "low-level" digital painting style that respects the specific hardware constraints and quirks of the original Sinclair machine.
+
+https://github.com/user-attachments/assets/270ceb32-235f-462b-b035-217261994a88
 
 ---
 
