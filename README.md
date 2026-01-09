@@ -39,7 +39,7 @@ The raw Sinclair BASIC output. This file contains the brute-force POKE commands 
 
 ---
 
-## The Mechanics: Binary & SCREEN$
+## The mechanics: binary & SCREEN$
 
 To understand this workshop, one must understand how the Spectrum "sees" an image:
 
@@ -52,16 +52,16 @@ To understand this workshop, one must understand how the Spectrum "sees" an imag
 ---
 
 ## Technical specifications
-* **Target Hardware:** ZX Spectrum 48k / 128k
-* **Binary Size:** 6,912 Bytes (6.75 KB)
-* **VRAM Start:** Address 16384 (Pixels)
-* **Attribute Start:** Address 22528 (Colors)
+* **Target hardware:** ZX Spectrum 48k / 128k
+* **Binary size:** 6,912 Bytes (6.75 KB)
+* **VRAM start:** Address 16384 (Pixels)
+* **Attribute start:** Address 22528 (Colors)
 * **Resolution:** 256 x 192 pixels
-* **Color Grid:** 32 x 24 (8x8 pixel attribute blocks)
+* **Color grid:** 32 x 24 (8x8 pixel attribute blocks)
 
-## How to Run
-1. **In an Emulator:** Load the produced virtual tape file (.TAP or .TZX) directly using the emulator's "Open" or "Smart Load" feature.
-2. **On Real Hardware:** * Connect your PC or mobile device's headphone jack to the Spectrum's **EAR** port.
+## How to run
+1. **In an emulator:** Load the produced virtual tape file (.TAP or .TZX) directly using the emulator's "Open" or "Smart Load" feature.
+2. **On real hardware:** * Connect your PC or mobile device's headphone jack to the Spectrum's **EAR** port.
    * Play the tape file via an audio gateway or playback tool (ensuring volume is set to roughly 80-90%).
    * Enter the command `LOAD "" SCREEN$` on the Spectrum and initiate audio playback on your modern device.
    * Once the image is successfully loaded into the Spectrum's memory, disconnect the cable from the device and connect the Spectrum's **MIC** port to a cassette recorder's input.
