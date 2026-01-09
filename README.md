@@ -26,14 +26,14 @@ The process moves from high-level design to low-level memory injection, culminat
 
 ### Production 
 A bespoke web-based graphics editor that acts as a translation engine.
-* **The Stage:** A 256x192 canvas locked to the Spectrum's native resolution.
-* **Trace Mode:** Allows for a modern photo to be used as a "ghost" layer for precision pixel-tracing.
-* **Import Engine:** A reverse-engineering tool that scans Sinclair BASIC POKE strings and reconstructs the image visually.
-* **Tape Mastering:** Integrated logic to generate `.TAP` and `.TZX` files, including the generation of checksums and proper header timings for real hardware compatibility.
+* **Canvas:** A 256x192 canvas locked to the Spectrum's native resolution.
+* **Trace modd:** Allows for a modern photo to be used as a "ghost" layer for precision pixel-tracing.
+* **Import engine:** A reverse-engineering tool that scans Sinclair BASIC POKE strings and reconstructs the image visually.
+* **Tape mastering:** Integrated logic to generate `.TAP` and `.TZX` files, including the generation of checksums and proper header timings for real hardware compatibility.
 
 ### Sample source code (self-portrait.bas)
-The raw Sinclair BASIC output. This file contains the brute-force POKE commands required to rebuild the Attribute (color) map of the portrait.
-* **Memory Range:** 22528 to 23295 (The Attribute Zone).
+The raw Sinclair BASIC output. This file contains the brute-force POKE commands required to rebuild the Attribute (colour) map of the portrait.
+* **Memory range:** 22528 to 23295 (The Attribute Zone).
 * **Format:** Plain text Sinclair BASIC.
 
 ---
@@ -42,8 +42,8 @@ The raw Sinclair BASIC output. This file contains the brute-force POKE commands 
 
 To understand this workshop, one must understand how the Spectrum "sees" an image:
 
-* **The Binary Map:** Every image is a 6,912-byte binary blob. The first 6,144 bytes define the pixels (on/off), and the final 768 bytes define the "Attributes" (colors). In this workshop, we treat the screen as raw data rather than a visual coordinate system.
-* **The SCREEN$ Command:** This is a powerful Sinclair BASIC keyword that acts as a shortcut for the memory range `CODE 16384, 6912`. When we use `SAVE "name" SCREEN$`, we are telling the computer to take an exact binary snapshot of the video RAM and stream it out as audio pulses to the tape.
+* **The binary map:** Every image is a 6,912-byte binary blob. The first 6,144 bytes define the pixels (on/off), and the final 768 bytes define the "Attributes" (colors). In this workshop, we treat the screen as raw data rather than a visual coordinate system.
+* **The SCREEN$ command:** This is a powerful Sinclair BASIC keyword that acts as a shortcut for the memory range `CODE 16384, 6912`. When we use `SAVE "name" SCREEN$`, we are telling the computer to take an exact binary snapshot of the video RAM and stream it out as audio pulses to the tape.
 * **Linearity vs. Reality:** While we draw in a linear fashion, the binary data is stored in a **non-linear** format to suit the hardware of 1982. The tool handles this translation automatically, ensuring the binary "shuffles" into the correct positions on the physical CRT.
 
 ---
@@ -67,7 +67,7 @@ Load the produced virtual tape file (`.TAP` or `.TZX`) directly using the emulat
 
 **Phase A: Digital Injection (Loading)**
 1.  Connect your PC or mobile device's headphone jack to the Spectrum's **EAR** port.
-    > **⚠️ Critical Audio Note:** Modern devices output Stereo signals, but the Spectrum requires **Mono**. Ensure your audio cable is mono-compatible, or force your device audio to Mono. If using a smartphone, ensure volume is at 85-90% and "EQ/Sound Enhancements" are disabled.
+    > **⚠️ Note:** Modern devices output Stereo signals, but the Spectrum requires **Mono**. Ensure your audio cable is mono-compatible, or force your device audio to Mono. If using a smartphone, ensure volume is at 85-90% and "EQ/Sound Enhancements" are disabled.
 2.  Enter the command `LOAD ""` on the Spectrum.
 3.  Initiate audio playback of the `.TAP` file on your modern device.
 4.  The Spectrum will load the BASIC program. If it does not auto-run, type `RUN` to execute the POKE commands and watch the image build itself.
