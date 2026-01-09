@@ -27,7 +27,7 @@ The process moves from high-level design to low-level memory injection, culminat
 ### Production 
 A bespoke web-based graphics editor that acts as a translation engine.
 * **Canvas:** A 256x192 canvas locked to the Spectrum's native resolution.
-* **Trace modd:** Allows for a modern photo to be used as a "ghost" layer for precision pixel-tracing.
+* **Trace mode:** Allows for a modern photo to be used as a "ghost" layer for precision pixel-tracing.
 * **Import engine:** A reverse-engineering tool that scans Sinclair BASIC POKE strings and reconstructs the image visually.
 * **Tape mastering:** Integrated logic to generate `.TAP` and `.TZX` files, including the generation of checksums and proper header timings for real hardware compatibility.
 
@@ -42,7 +42,7 @@ The raw Sinclair BASIC output. This file contains the brute-force POKE commands 
 
 To understand this workshop, one must understand how the Spectrum "sees" an image:
 
-* **The binary map:** Every image is a 6,912-byte binary blob. The first 6,144 bytes define the pixels (on/off), and the final 768 bytes define the "Attributes" (colors). In this workshop, we treat the screen as raw data rather than a visual coordinate system.
+* **The binary map:** Every image is a 6,912-byte binary blob. The first 6,144 bytes define the pixels (on/off), and the final 768 bytes define the "Attributes" (colours). In this workshop, we treat the screen as raw data rather than a visual coordinate system.
 * **The SCREEN$ command:** This is a powerful Sinclair BASIC keyword that acts as a shortcut for the memory range `CODE 16384, 6912`. When we use `SAVE "name" SCREEN$`, we are telling the computer to take an exact binary snapshot of the video RAM and stream it out as audio pulses to the tape.
 * **Linearity vs. Reality:** While we draw in a linear fashion, the binary data is stored in a **non-linear** format to suit the hardware of 1982. The tool handles this translation automatically, ensuring the binary "shuffles" into the correct positions on the physical CRT.
 
