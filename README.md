@@ -22,7 +22,7 @@ The process moves from high-level design to low-level memory injection, culminat
 
 ## Component breakdown
 
-### Production 
+### Production 
 A bespoke web-based graphics editor that acts as a translation engine.
 * **The Stage:** A 256x192 canvas locked to the Spectrum's native resolution.
 * **Trace Mode:** Allows for a modern photo to be used as a "ghost" layer for precision pixel-tracing.
@@ -36,8 +36,21 @@ The raw Sinclair BASIC output. This file contains the brute-force POKE commands 
 
 ---
 
+## The Mechanics: Binary & SCREEN$
+
+To understand this workshop, one must understand how the Spectrum "sees" an image:
+
+* **The Binary Map:** Every image is a 6,912-byte binary blob. The first 6,144 bytes define the pixels (on/off), and the final 768 bytes define the "Attributes" (colors). In this workshop, we treat the screen as raw data rather than a visual coordinate system.
+* **The SCREEN$ Command:** This is a powerful Sinclair BASIC keyword that acts as a shortcut for the memory range `CODE 16384, 6912`. When we use `SAVE "" SCREEN$`, we are telling the computer to take an exact binary snapshot of the video RAM and stream it out as audio pulses to the tape.
+* **Linearity vs. Reality:** While we draw in a linear fashion, the binary data is stored in a non-linear, interlaced format to suit the hardware of 1982. The tool handles this translation automatically, ensuring the binary "shuffles" into the correct positions on the physical CRT.
+
+
+
+---
+
 ## Technical specifications
 * **Target Hardware:** ZX Spectrum 48k / 128k
+* **Binary Size:** 6,912 Bytes (6.75 KB)
 * **VRAM Start:** Address 16384 (Pixels)
 * **Attribute Start:** Address 22528 (Colors)
 * **Resolution:** 256 x 192 pixels
@@ -53,7 +66,3 @@ The raw Sinclair BASIC output. This file contains the brute-force POKE commands 
 3. **Note:** The physical tape is now a permanent analog copy. It can be used and loaded exactly like a commercial game on any real Sinclair ZX Spectrum by simply using the standard `LOAD ""` command.
 
 ---
-
-
-
-
