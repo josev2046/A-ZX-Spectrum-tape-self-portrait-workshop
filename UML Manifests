@@ -1,0 +1,55 @@
+@startuml
+
+skinparam sequence {
+    ArrowColor #DA251D
+    LifeLineBorderColor #222222
+    ParticipantBorderColor #333333
+    ParticipantBackgroundColor #EEEEEE
+    GroupBackgroundColor #DDDDDD
+    GroupHeaderFontColor #FFFFFF
+}
+
+title <size:20>JV's ZX Spectrum Tape Self-Portrait Workflow</size>
+
+box "1. Digital Creation" #CFE2F3
+    actor Developer as "User"
+    participant PC as "Modern PC\n(Binary/Hex)"
+end box
+
+box "2. Virtual Mastering" #D9D2E9
+    participant Emu as "Spectrum\nEmulator"
+    database TAP as "Virtual Master\n(.TAP File)"
+end box
+
+box "3. Physical Deployment" #D9EAD3
+    participant Jack as "Audio Out\n(3.5mm Jack)"
+    participant ZX as "Real ZX\nSpectrum"
+    participant Tape as "Magnetic\nCassette"
+end box
+
+== Asset Preparation ==
+Developer -> PC : Write POKE logic
+PC -> PC : Compile to 6.75KB\nSCREEN$ Binary
+
+== Virtual Validation ==
+PC -> Emu : Load Binary into $16384
+Emu -> Developer : Visual Confirmation
+Developer -> Emu : SAVE "selfie" SCREEN$
+Emu -> TAP : Write Header & Data Blocks
+
+== Hardware Bridge ==
+TAP -> Jack : Convert to 22.05kHz PWM
+Developer -> ZX : Command: LOAD "" SCREEN$
+Jack -> ZX : Audio Signal (EAR Port)
+note right of ZX : Border flashes\nRed/Cyan & Blue/Yellow
+
+== Analog Archival ==
+Developer -> Tape : Press RECORD
+Developer -> ZX : Command: SAVE "selfie" SCREEN$
+ZX -> Tape : Signal to MIC Port
+Tape -> Developer : **Archive Complete**
+
+@enduml
+
+--
+
