@@ -1,5 +1,8 @@
 # A ZX Spectrum tape self-portrait workshop
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.18202890.svg)](https://doi.org/10.5281/zenodo.18202890)
+
+
 > **"A pixel-perfect selfie built by POKE-ing raw data directly into the Spectrum’s heart, one byte of SCREEN$ memory at a time."**
 
 ## Overview
